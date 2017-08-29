@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-info">
       <div class="panel-heading">
         <div class="panel-title">Sign Up</div>
@@ -7,26 +7,22 @@
       <div class="panel-body" >
         <%= form_for @user, html: { class: "form-horizontal" } do |f| %>
           <div class="form-group">
-            <%= f.label :name, class: "col-md-3 control-label" %>
-            <div class="col-md-9">
+            <div class="col-md-12">
               <%= f.text_field :name, class: "form-control", placeholder: "name" %>
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :email, class: "col-md-3 control-label" %>
-            <div class="col-md-9">
+            <div class="col-md-12">
               <%= f.text_field :email, class: "form-control", placeholder: "Email Address" %>
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :password, class: "col-md-3 control-label" %>
-            <div class="col-md-9">
+            <div class="col-md-12">
               <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :password_confirmation, "Confirmation", class: "col-md-3 control-label" %>
-            <div class="col-md-9">
+            <div class="col-md-12">
               <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
             </div>
           </div>
@@ -39,7 +35,7 @@
 
           <div class="form-group">
             <div class="col-md-12 control">
-              <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+              <div class="already">
                 Already have an account?
                 <%= link_to "Login Here", login_path %>
               </div>
