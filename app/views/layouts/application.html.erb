@@ -49,6 +49,11 @@
       <% end %>
     <% end %>
 
+    <% if logged_in? %>
+      Logged in: <%= current_user.email %> | <%= link_to "Logout", logout_path %>
+    <% else %>
+      <%= link_to 'Login', login_path %> | <%= link_to 'Signup', signup_path %>
+    <% end %>
     <%= yield %>
   </div>
 </body>
