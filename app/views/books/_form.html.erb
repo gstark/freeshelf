@@ -1,0 +1,59 @@
+<%= form_for(@book, html: { class: "form-horizontal", role: "form" }) do |f| %>
+
+  <%# Alert showing errors for this form %>
+  <% if @book.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h4>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# title %>
+  <div class="form-group">
+    <%= f.label :title, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# author %>
+  <div class="form-group">
+    <%= f.label :author, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :author, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# url %>
+  <div class="form-group">
+    <%= f.label :url, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :url, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# Submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end -%>
