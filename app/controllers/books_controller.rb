@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authorize!
 
   # Like in express...  
   # app.get('/books', (req, res) => {
