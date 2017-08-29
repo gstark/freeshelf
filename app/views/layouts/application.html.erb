@@ -38,6 +38,10 @@
           <li class="active"><%= link_to "Home", "#" %></li>
           <li><%= link_to "New Book", new_book_path %><li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-text">Welcome: <span class="text-warning"><%= current_user.name %></span></li>
+          <li><%= link_to "Logout", logout_path %><li>
+        </ul>
       </div>
     </div>
   </nav>
