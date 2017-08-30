@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authorize!
+  before_action :authorize!, except: [:index, :show]
 
   # Like in express...  
   # app.get('/books', (req, res) => {

@@ -38,10 +38,16 @@
           <li class="active"><%= link_to "Home", "#" %></li>
           <li><%= link_to "New Book", new_book_path %><li>
         </ul>
+        <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li class="navbar-text">Welcome: <span class="text-warning"><%= current_user.name %></span></li>
           <li><%= link_to "Logout", logout_path %><li>
         </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Login", login_path %><li>
+        </ul>
+        <% end %>
       </div>
     </div>
   </nav>
