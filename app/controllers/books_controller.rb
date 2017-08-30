@@ -9,7 +9,9 @@ class BooksController < ApplicationController
   #
   # GET /books
   def index
-    @books = Book.all
+    page_number = params[:page]
+
+    @books = Book.page(page_number)
   end
 
   # GET /books/1
