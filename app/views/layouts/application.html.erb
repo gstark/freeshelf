@@ -29,18 +29,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "#", class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand" do %>
           Freeshelf
         <% end %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", "#" %></li>
+          <li class="active"><%= link_to "Home", books_path %></li>
           <li><%= link_to "New Book", new_book_path %><li>
         </ul>
         <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="navbar-text">Welcome: <span class="text-warning"><%= current_user.name %></span><span class="user-book-count badge"><%= current_user.books.count %></span></li>
+          <li>
+            <%= link_to user_path(current_user) do %>
+            Welcome: <%= current_user.name %><span class="user-book-count badge"><%= current_user.books.count %></span>
+            <% end %>
+          </li>
           <li><%= link_to "Logout", logout_path %><li>
         </ul>
         <% else %>

@@ -27,7 +27,7 @@
 
   <% if @book.user %>
   <dt>Created by:</dt>
-  <dd><%= @book.user.name %></dd>
+  <dd><%= link_to @book.user.name, user_path(@book.user) %></dd>
   <% end %>
 
 </dl>
