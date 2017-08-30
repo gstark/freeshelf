@@ -31,3 +31,49 @@
   <% end %>
 
 </dl>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Comments</div>
+  <div class="panel-body">
+    <p>
+      <%= form_for([@book, @comment], html: { class: "form-horizontal", role: "form" }) do |f| %>
+        <%# Alert showing errors for this form %>
+        <% if @comment.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h4>
+
+            <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%# message %>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <%= f.text_field :message, class: "form-control", placeholder: "Comment ..." %>
+          </div>
+          <div class="col-sm-2">
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end -%>
+    </p>
+  </div>
+
+  <ul class="list-group">
+    <% @book.comments.each do |comment| %>
+    <li class="list-group-item"><%= comment.message %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
+

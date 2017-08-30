@@ -4,4 +4,6 @@ class Book < ApplicationRecord
   # called `user_id` that is an integer (and a foreign key)
   # to the `users` table
   belongs_to :user
+
+  has_many :comments
 end
