@@ -25,4 +25,9 @@
   <dt>Url:</dt>
   <dd><%= @book.url %></dd>
 
+  <% if @book.user %>
+  <dt>Created by:</dt>
+  <dd><%= @book.user.name %></dd>
+  <% end %>
+
 </dl>

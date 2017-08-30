@@ -40,7 +40,7 @@
         </ul>
         <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="navbar-text">Welcome: <span class="text-warning"><%= current_user.name %></span></li>
+          <li class="navbar-text">Welcome: <span class="text-warning"><%= current_user.name %></span><span class="user-book-count badge"><%= current_user.books.count %></span></li>
           <li><%= link_to "Logout", logout_path %><li>
         </ul>
         <% else %>

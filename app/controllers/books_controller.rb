@@ -25,11 +25,17 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+
+    # If we aren't the book's user, redirect to the books_path
+    unless @book.user == current_user
+      redirect_to books_path
+    end
   end
 
   # POST /books
   def create
     @book = Book.new(book_params)
+    @book.user = current_user
 
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
@@ -41,6 +47,13 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     @book = Book.find(params[:id])
+
+    # If we aren't the book's user, redirect to the books_path
+    unless @book.user == current_user
+      redirect_to books_path
+      return
+    end
+
     if @book.update(book_params)
       redirect_to @book, notice: 'Book was successfully updated.'
     else
@@ -51,6 +64,13 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     @book = Book.find(params[:id])
+
+    # If we aren't the book's user, redirect to the books_path
+    unless @book.user == current_user
+      redirect_to books_path
+      return
+    end
+
     @book.destroy
     redirect_to books_url, notice: 'Book was successfully destroyed.'
   end
