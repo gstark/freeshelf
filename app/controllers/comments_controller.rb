@@ -1,12 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authorize!
 
-  # GET /comments/new
-  def new
-    @book = Book.find(params[:book_id])
-    @comment = @book.comments.new
-  end
-
   # POST /comments
   def create
     @book = Book.find(params[:book_id])
